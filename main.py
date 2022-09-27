@@ -1,10 +1,25 @@
 from __future__ import print_function
 from re import I
+import random
 
 
-numero_secreto = 89
+numero_secreto = random.randrange(1,101)
 total_de_tentativas = 3
 rodada = 1
+pontos=100
+
+print("Qual o nivel da dificuldade?")
+print("(1)Facil (2)Medio (3)Difícil")
+
+nivel = int(input ("Define o nível: "))
+
+
+if (nivel == 1):
+    total_de_tentativas = 20
+elif(nivel == 2):
+    total_de_tentativas = 10
+else:
+    total_de_tentativas = 5
 
 for rodada in  range(1, total_de_tentativas + 1):
     print("Tentantivas {} de {} :".format(rodada, total_de_tentativas))
@@ -21,13 +36,15 @@ for rodada in  range(1, total_de_tentativas + 1):
     errouMenor = chute < numero_secreto
 
     if (acertou):
-        print("acerto")
+        print("Você acertou e faz {} pontos ".format(pontos))
         break
     else:
         if(errouMaior):
             print("errou numero informado e maior que o numero secreto")
         elif(errouMenor):
             print("errou numero informado e menor que o numero secreto")
-    rodada = rodada +1
+        pontos_perdidos = abs(numero_secreto - chute)
+        pontos = pontos -  pontos_perdidos
+
 
     print ("Fim do jogo")

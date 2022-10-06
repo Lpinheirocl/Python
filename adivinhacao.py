@@ -2,7 +2,7 @@ from __future__ import print_function
 from re import I
 import random
 
-def jogar_adivinhacao():
+def jogar():
 
     print("Adivinhe o numero")
     numero_secreto = random.randrange(1,101)
@@ -50,4 +50,8 @@ def jogar_adivinhacao():
 
 
         print ("Fim do jogo")
+
+
+if (__name__ == "__main__"):
+    jogar()
         
